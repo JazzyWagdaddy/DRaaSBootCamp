@@ -20,20 +20,20 @@ We need a source environments to backup.
     * select **Next: Disks >**
 4.	Click **Next: Networking >**.
 5.	Click **Next: Management >**.
-6.	Click **Create new** for the **Diagnostic storage account** and  enter `yourinitials shortdate`. Ensure the name resolves (e.g. abc1009), click **OK**, and then click **Next: Advanced >**. *Note to the choice to enable backup.*
+6.	Click **Create new** for the **Diagnostic storage account** and  enter `yourinitials shortdate`. Ensure the name resolves (e.g. abc1009), click **OK**, and then click **Next: Advanced >**. *Note the choice to enable backup.*
 7.	Review the items and then click **Next: Tags >**.
 8.	Review the items and then click **Next: Review + create >**.
 9.	Once validation passes click **Create**.
 
 ### Connect to your VM
-1)	Once deployment is complete, click on **Go to resource.** 
-2)	Click on **Connect**.
-3) Select **Download RDP File**.
-4) 	Click on **Connect**.
-5)	Choose **More Choices** on the Windows Security screen and then **Use a Different Account**.
-6)	Enter `backup\`user name and then `Complex.Password` as the password. Click **Yes** when prompted.
-7)	Within the RDP session click **No** on the **Networks blade**.
-8)	Disable IE Enhanced Security Configuration by:
+1.	Once deployment is complete, click on **Go to resource.** 
+2.	Click on **Connect**.
+3. Select **Download RDP File**.
+4. 	Click on **Connect**.
+5.	Choose **More Choices** on the Windows Security screen and then **Use a Different Account**.
+6.	Enter `backup\`user name and then `Complex.Password` as the password. Click **Yes** when prompted.
+7.	Within the RDP session click **No** on the **Networks blade**.
+8.	Disable IE Enhanced Security Configuration by:
     * Wait for **Server Manager** to open
     * Click **Local Server**
     * Click **On** by **IE ESC**
@@ -41,18 +41,18 @@ We need a source environments to backup.
     * Click **OK**
     * Minimize **Server Manager**
 Copy sample data
-1)	Open a **Command Prompt** under **Windows System** and paste the following command in:
+1.	Open a **Command Prompt** under **Windows System** and paste the following command in:
 
     `net use Z: \\wagsazurefiles.file.core.windows.net\ignite2018 /u:AZURE\wagsazurefiles tCfYh37xGNjIc0czqfTW9+kUHIIhlxRUPh9h4YtD/hh7FiFPn1v32RH7uV0a83E6nAa6kkVU6d+nAAeoBItpJg==`
 
     *You are mapping a drive to an Azure Files Share.*
 
-2)	Switch to the root of c: and enter the following:
+2.	Switch to the root of c: and enter the following:
     * md c:\ignite
     * cd\ignite
-3)	Enter the following command:
+3.	Enter the following command:
     * `Robocopy z:\ c:\ignite brk22* /z`
-4)	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
+4.	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
  
 ### Create a recovery services vault
 To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. 
