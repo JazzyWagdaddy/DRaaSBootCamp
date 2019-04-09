@@ -31,8 +31,8 @@ We need a source environments to backup.
 3. Select **Download RDP File**.
 4. 	Click on **Connect**.
 5.	Choose **More Choices** on the Windows Security screen and then **Use a Different Account**.
-6.	Enter `backup\`user name and then `Complex.Password` as the password. Click **Yes** when prompted.
-7.	Within the RDP session click **No** on the **Networks blade**.
+6.	Enter `SourceVM\`user name and then `Complex.Password` as the password. Click **Yes** when prompted.
+7.	Once your desktop renders click **No** on the **Networks blade**.
 8.	Disable IE Enhanced Security Configuration by:
     * Wait for **Server Manager** to open
     * Click **Local Server**
