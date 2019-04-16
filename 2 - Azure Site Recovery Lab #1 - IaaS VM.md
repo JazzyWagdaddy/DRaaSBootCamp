@@ -49,19 +49,19 @@ If the command is successful (TcpTestSucceeded=True) then continue with the foll
 8. Open a web browser and surf to the public IP address just make sure things are working.
 
 ## Task 2 - Create target network resource
-We could have ASR automatically create the target network resources (i.e. Virtual networks and subnets) but in a more realistic scenario you'd want to pre-create these resources and place your migrated VMs in soecific networks. 
+We could have ASR automatically create the target network resources (i.e. Virtual networks and subnets) but in a more realistic scenario you'd want to pre-create these resources and place your recovered VMs in specific networks. 
 1. Click on Virtual networks then **+Add**
 2. 	Enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
-    * Name: **MigrationvNet**
+    * Name: **Production**
     * Address Space: **10.10.0.0/16**
-    * Resource Group: *Create New* **MigrationvNets**
+    * Resource Group: *Create New* **Production**
     * Location: **Central US**
-    * Subnet Name: **migsub**
+    * Subnet Name: **prodsub**
     * Subnet address range: **10.10.10.0/24** 
 
 ## Task 3 - Create a Recovery Services vault
-This task is the normal starting point for a typical lift and shift migration as you would normally have a robust source environment to migrate. 
-1. Click **Create a resource > Management Tools > Backup and Site Recovery(OMS)** and enter **MyVault** as the Name and **Migration** as the Resource Group.  Click **Create**.
+ 
+1. Click **Create a resource > Management Tools > Backup and Site Recovery(OMS)** and enter **MyVault** as the Name and **Production** as the Resource Group.  Click **Create**.
 
 
 ## Task 4 - Select a replication goal
@@ -77,11 +77,11 @@ This task is the normal starting point for a typical lift and shift migration as
 2.	Under **Operations**, click **Disaster recovery**.
 3.	In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate and where you create the network resources in Task 2, which should be the Central US. Click **Next: Advanced settings**.
 4. Under Advanced settings, set the following and click **Next: Review + Start Replication**.
-    * VM resource group: **MigrationvNets**
-    * Virtual network" **MigrationvNet**
+    * VM resource group: **Production**
+    * Virtual network" **Production**
     * Availability: **Availability set**
 5. Click on **Review + Start replication**.
-6. Review the settings and click **Start replication**. This starts a job to enable replication (aka migration) for the VM.
+6. Review the settings and click **Start replication**. This starts a job to enable replication for the VM.
 7.	You may notice that Vaildating takes a few moments to process.  The fabric is ensuring that resources in your target region can be created and there’s no conflicts.
 
 
@@ -93,31 +93,31 @@ This task is the normal starting point for a typical lift and shift migration as
 
 
 ## Task 7 - Run a Test Failover 
-A test failover executes a failover but does not make the secondary or migrated VM active.  A drill validates your replication strategy without data loss or downtime and doesn't affect your production environment.
+A test failover executes a failover but does not make the secondary VM active.  A drill validates your replication strategy without data loss or downtime and doesn't affect your production environment.
 1.	Click the **Test Failover** icon.
 2.	In Test Failover, select **Latest (lowest RPO)** as the recovery point to use for the failover.  Note the following:
     * **Latest (lowest RPO):** Fails the VM over with the current state of the VM but requires some processing time.
     * **Latest processed (low RTO):** Fails the VM over to the latest recovery point that was processed by the Site Recovery service. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (Recovery Time Objective)
     * **Latest app-consistent:** This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
     * **Custom:** Use this option to fail over to a specific recovery point. This option is useful for performing a test failover.
-3.	Select the target Azure virtual network to which Azure VMs in the secondary region will be connected after the failover occurs, which in this lab is **MigrationvNet**.  
+3.	Select the target Azure virtual network to which Azure VMs in the secondary region will be connected after the failover occurs, which in this lab is **Production**.  
 4.	To start the failover, click **OK**. Track progress by selecting the alert in the Notifications window. 
 5.	After the failover finishes (Start the virtual machine task is successful), the replica Azure VM appears in the Azure portal under Virtual Machines. Make sure that the VM is running, sized appropriately, and connected to the appropriate network. Note that the VM does not have a Public IP address.
 6.	To delete the VMs that were created during the test failover, select **IIS** from **Virtual Machines**, select **Disaster recovery** under  **Operations**, and then choose **Cleanup test failover**. In Notes, record and save any observations associated with the test failover. Click the box for **Testing is complete** and click **Ok**.
 If you don’t delete the failover VM, the VM will continue to run and increase your Azure consumption.
 
- ## Task 8 - Switch over to the migrated VM
- Once you have validated the migrated VM by performing a test failover, your next step would be to switch over to the migrated VM.  In this lab you will complete the migration.
+ ## Task 8 - Switch over to the VM
+ Once you have validated the VM by performing a test failover, your next step would be to switch over to the recovered VM. 
 
  1.  Once **Test Failover** is complete, click on **Failover**.
- 2. Under **Recovery Point** enure that **(low RTO)** is selected and click **OK**. Note the checkbox to shut down the source VM before failover (migration). 
- Under alerts click the link for **Starting failover** and monitor the failover (migration).
+ 2. Under **Recovery Point** enure that **(low RTO)** is selected and click **OK**. Note the checkbox to shut down the source VM before failover. 
+ Under alerts click the link for **Starting failover** and monitor the failover.
  3. Once failover is complete, click on **Virtual Machines** in the Azure Portal and notice that you have two IIS VMs; one stopped (deallocated) in the East US and then another VM in the Central US that's running.
 
- ## Task 9 - Make your migrated VM accessible
- When you migrate a VM a public IP address is not added by default and the Virtual Network does not have any Network Security Group rules.  We need to add all of these.
+ ## Task 9 - Make your  VM accessible
+ When you failover a VM a public IP address is not added by default and the Virtual Network does not have any Network Security Group rules.  We need to add all of these.
 
- For real production migrations Microsoft recommends that you add these steps to what is called a recovery plan so that they are automatically built and added as the VM is migrated.
+ For real production failovers Microsoft recommends that you add these steps to what is called a recovery plan so that they are automatically built and added as the VM is provisioned.
 
  Please refer to the following articles for detailed steps:
  
