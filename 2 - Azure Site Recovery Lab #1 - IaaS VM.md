@@ -44,7 +44,7 @@ If the command is successful (TcpTestSucceeded=True) then continue with the foll
 7. When prompted enter the username and password for the IIS VM:
     * Username:  pick a username and notate the credentials
     * Password: Enter `Complex.Password` and notate the credentials 
-8. Observe the build process via PowerShell.
+8. Observe the build process via PowerShell.  At this point you can complete tasks 2 - 4 as the IIS virtual machine is being built.
 7. Once PowerShell builds the VM and installs IIS, open the Azure Portal and then obtain the public IP address of the IIS virtual machine.
 8. Open a web browser and surf to the public IP address just make sure things are working.
 
