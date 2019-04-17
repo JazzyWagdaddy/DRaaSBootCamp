@@ -4,6 +4,20 @@ In this lab you will create a VM in Azure to simulate a source VM running in eit
 
 Please note that using this approach represents `the fastest way` to protect  a VM and should not be seen as the usual, customary amount of time it takes to perform site recovery to Azure. 
 
+## Microsoft Azure Subscription
+You will need to provide an Azure subscription for this boot camp.  Please use any of the following and have it ready before we begin:
+* IUR from your partner organization
+* MSDN/Visual Studio subscription
+* Free Tier
+
+Please try not to use a subscription that might be used in production by your customer or partner organization.  We don’t want to cause any conflicts. 😊
+
+If you need a temporary Azure subscription, a $50 Azure pass can be obtained if you enroll in the Microsoft: AZ-300.1 Deploying and Configuring Infrastructure course on OpenEdX:
+ https://openedx.microsoft.com/courses/course-v1:Microsoft+AZ-300.1+2019_T1/course/
+
+Once you enroll in the OpenEdX course, navigate to this location and follow the instructions to create a new outlook.com account and activate your pass:
+
+**Course -> Start Here -> Obtaining and Redeeming Your Azure Pass -> Obtain Your Azure Pass**
 
 ## Task 1 - Create an IIS VM with PowerShell
 
