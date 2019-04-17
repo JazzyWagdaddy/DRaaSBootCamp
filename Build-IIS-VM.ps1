@@ -1,5 +1,5 @@
 ﻿# Variables for common values
-$resourceGroup = "Migration"
+$resourceGroup = "Production"
 $location = "eastus"
 $vmName = "IIS"
 
