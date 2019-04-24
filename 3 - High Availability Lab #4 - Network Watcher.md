@@ -10,13 +10,13 @@ To test network communication with Network Watcher, first enable a network watch
 ## Task 2 - Packet Capture and examination
 1.	Under **Network diagnostics tools**, select **Packet Capture**, then **+Add**.
 2.	Enter the following and click **Ok**:
-    * Resource Group: **LBGR**
+    * Resource Group: **LBRG**
     * Target VM: **VM1**
     * Packet Capture Name: **Packets**
     * Capture configuration: **Storage Account**
     * Storage Accounts:  Select the storage account previously provisioned
 3.	Find the public IP address for the load balancer **LoadBalancer**.
-4.	Shutdown VM2 and then copy the public IP address and paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting LBVM1 or LBVM2 as you refresh your browser.
+4.	Shutdown VM2 and then copy the public IP address and paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting VM1 or LM2 as you refresh your browser.
 5.	Stop the packet capture by returning to **Network Watcher** > **Packet Capture** > **Right-Click** > **Stop**.
 6.	If you click on the .cap file it will display the blob properties.  Download the file to your documents folder on your local computer.
 7.	Install **Network Monitor** from the following:
