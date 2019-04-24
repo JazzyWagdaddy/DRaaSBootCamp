@@ -21,7 +21,7 @@ This lab requires that you have deploy two instances of a web application runnin
     * Resource Group: *Create New* **WestWebApps**
     * Click on App Service\Locations and then:
         * Create New: **WestWebApps**
-        * App Service plan name: `yourinitals`EastAppSvcPlan
+        * App Service plan name: `yourinitals`WestAppSvcPlan
         * Location: **West US**
         * Pricing Tier: **D1 Shared**
         * Click **OK**
