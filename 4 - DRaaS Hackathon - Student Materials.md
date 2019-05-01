@@ -172,37 +172,26 @@ Directions: Answer the following questions and be preparred to discuss your answ
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
-## Step 3: Present the solution
+## Step 3: Price the solution
 
 **Outcome**
 
-Present a solution to the target customer audience in a 15-minute chalk-talk format.
-
+Develop a ROM price by using the Azure Calcuator and PAYG pricing. 
 Timeframe: 30 minutes
 
 **Presentation**
 
 Directions:
 
-1.  Pair with another table.
+1.  Use the [Azure Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
 
-2.  One table is the Microsoft team and the other table is the customer.
-
-3.  The Microsoft team presents their proposed solution to the customer.
-
-4.  The customer makes one of the objections from the list of objections.
-
-5.  The Microsoft team responds to the objection.
-
-6.  The customer team gives feedback to the Microsoft team.
-
-7.  Tables switch roles and repeat Steps 2-6.
+2. 
 
 ##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Discuss as a group the preferred solution for the case study.
 
 ##  Additional references
 |    |            |       
